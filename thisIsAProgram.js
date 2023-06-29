@@ -14,4 +14,16 @@ mood = "dark";
 
 let luigisDebt = 140;
 luigisDebt = luigisDebt - 35;
-console.log(luigisDebt)
+// console.log(luigisDebt)
+
+let one = 1, two = 2
+three = one + two
+// console.log(three)
+
+var name = "Mark"
+const greeting = "Oh, Hi "
+// console.log(greeting + name)
+
+// prompt("Enter passcode: ")
+
+console.log(Math.max(2,4))
