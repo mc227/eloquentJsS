@@ -8,8 +8,8 @@ ingredient(0.5, "teaspoon", "cumin")
 */ 
 
 const hummus = function(factor) {
-    const ingredient = function(amount,unit,name) {
-        let ingredientAmount = amount * factor;
+    const ingredient = function(amount, unit, name) {
+        let ingredientAmount = amount * factor
         if (ingredientAmount > 1) {
             unit += "s"
         }
