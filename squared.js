@@ -92,3 +92,12 @@ make that several books will make my work with chatgpt better
 
 // let twice = multiplier(2);
 // console.log(twice(5))
+
+function power(base,exponent) {
+    if (exponent == 0) {
+        return 1
+    } else {
+        return base * power(base, exponent - 1)
+    }
+}
+console.log(power(2,3))
