@@ -19,18 +19,36 @@
 
 
 
-function findSolution(target) {
-    function find(current, history){
-        if (current == target) {
-            return history
-        } else if (current > target) {
-            return null
-        } else {
-            return find(current+5,`(${history} + 5)`) || find(current*3,`(${history} * 3)`)
-        }
+// function findSolution(target) {
+//     function find(current, history){
+//         if (current == target) {
+//             return history
+//         } else if (current > target) {
+//             return null
+//         } else {
+//             return find(current+5,`(${history} + 5)`) || find(current*3,`(${history} * 3)`)
+//         }
+//     }
+//     return find(1,"1")
+// }
+
+
+// console.log(findSolution(24))
+
+
+// 007 Cows
+// 011 Chickens
+
+function printFarmInventory(cows,chicken){
+    let cowString = String(cows)
+    while (cowString.length < 3) {
+        cowString = "0" + cowString
     }
-    return find(1,"1")
+    let chickenString = String(chicken)
+    while (chickenString.length < 3) {
+        chickenString = "0" + chickenString
+    }
+    return cowString + " Cows\n" + chickenString + " Chicken"
 }
 
-
-console.log(findSolution(24))
+console.log(printFarmInventory(7,11))
