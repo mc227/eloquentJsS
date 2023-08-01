@@ -39,16 +39,59 @@
 // 007 Cows
 // 011 Chickens
 
-function printFarmInventory(cows,chicken){
-    let cowString = String(cows)
-    while (cowString.length < 3) {
-        cowString = "0" + cowString
-    }
-    let chickenString = String(chicken)
-    while (chickenString.length < 3) {
-        chickenString = "0" + chickenString
-    }
-    return cowString + " Cows\n" + chickenString + " Chicken"
-}
+// function printFarmInventory(cows,chicken){
+//     let cowString = String(cows)
+//     while (cowString.length < 3) {
+//         cowString = "0" + cowString
+//     }
+//     let chickenString = String(chicken)
+//     while (chickenString.length < 3) {
+//         chickenString = "0" + chickenString
+//     }
+//     return cowString + " Cows\n" + chickenString + " Chicken"
+// }
 
-console.log(printFarmInventory(7,11))
+// console.log(printFarmInventory(7,11))
+
+
+// so they want to extend the code above
+// function printZeroPaddedWithLabel(number, label) {
+//     let labelString = String(number)
+//     while (labelString.length < 3) {
+//         labelString = "0" + labelString
+//     }
+//     console.log(labelString +" "+label)
+// }
+
+// function printFarmInventory(cows,chicken,pigs){
+//     printZeroPaddedWithLabel(cows,"Cows")
+//     printZeroPaddedWithLabel(chicken,"Chickens")
+//     printZeroPaddedWithLabel(pigs,"Pigs")
+// }
+
+// printFarmInventory(7,11,3)
+
+
+// function zeroPad(number, width) {
+//     let string = String(number)
+//     while(string.length < width) {
+//         string = "0" + string
+//     }
+//     return string
+// }
+    
+// function printFarmInventory(cows, chickens, pigs) {
+//     console.log(`${zeroPad(cows,3)} Cows`)
+//     console.log(`${zeroPad(chickens,3)} Chickens`)
+//     console.log(`${zeroPad(pigs,3)} Pigs`)
+// }
+    
+// printFarmInventory(7, 16, 3);
+
+function min(first, second) {
+    if (first >= second) {
+        return second
+    } else {
+        return first
+    }
+}
