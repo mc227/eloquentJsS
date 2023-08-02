@@ -86,12 +86,26 @@
 //     console.log(`${zeroPad(pigs,3)} Pigs`)
 // }
     
-// printFarmInventory(7, 16, 3);
+// // printFarmInventory(7, 16, 3);
 
-function min(first, second) {
-    if (first >= second) {
-        return second
-    } else {
-        return first
-    }
-}
+// function min(first, second) {
+//     if (first >= second) {
+//         return second
+//     } else {
+//         return first
+//     }
+// }
+
+// function isEven(number) {
+//     if (number == 0) {
+//         return true
+//     } else if(number == 1) {
+//         return false
+//     } else if(number<0){
+//         return isEven(-number)
+//     } else {
+//         return isEven(number-2)
+//     }
+// }
+
+// console.log(isEven(75))
