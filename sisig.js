@@ -109,3 +109,110 @@
 // }
 
 // console.log(isEven(75))
+
+// function countBs(string) {
+//     let count = 0
+//     for(let i = 0; i < string.length; i++) {
+//         if (string[i]=="B"){
+//             count++
+//         }
+//     }
+//     return count
+// }
+
+// function countChar(string,char){
+//     let count = 0
+//     for(let i = 0; i < string.length; i++) {
+//         if (string[i]==char){
+//             count++
+//         }
+//     }
+//     return count
+// }
+
+// let listOfNumbers = [2,3,5,7,11]
+// console.log(listOfNumbers[2])
+
+// let doh = "Doh"
+// console.log(typeof doh.toUpperCase())
+
+// let sequence = [1,2,3]
+// sequence.push(4)
+// sequence.push(5)
+// console.log(sequence)
+
+// let day1 = {
+//     squirrel:false,
+//     events:["work","touched tree","pizza","running"]
+// }
+// console.log(day1.squirrel)
+// console.log(day1.wolf)
+// day1.wolf=false
+// console.log(day1.wolf)
+
+// let descriptions = {
+//     work:"Went to work",
+//     "touched tree": "Touched a tree"
+// }
+
+// let anObject = {left:1, right:2}
+// console.log(anObject.left)
+// delete anObject.left
+// console.log(anObject.left)
+// console.log("left" in anObject)
+// console.log("right" in anObject)
+
+// console.log(Object.keys({x:0,y:0,z:1}))
+
+// let anObject = {a:1,b:2}
+// Object.assign(anObject,{b:3,c:4})
+// console.log(anObject)
+
+// console.log(typeof [])
+// console.log(typeof {})
+// let journal = [
+//     {
+//         events:["pooped", "showered","ran","ate"],
+//         squirrel:false
+//     },{
+//         events:["pooped", "showered","ran","ate"],
+//         squirrel:false
+//     },{
+//         events:["pooped", "showered","ran","ate"],
+//         squirrel:false
+//     },
+// ];
+
+// let object1 = {value:10}
+// let object2 = object1
+// let object3 = {value:10}
+
+// console.log(object1 == object3)
+
+// object1.value = 15
+// console.log(object2.value)
+
+// const score = {home:0, visitor:0}
+// score.home=1
+// score = {home:1, visitor:1}
+// console.log(score)
+
+// let journal = []
+
+// function addEntry(events,squirrel) {
+//     journal.push({events,squirrel})
+// }
+
+// console.log(journal)
+
+// addEntry(["ran", "prayed", "ate", "slept"],false)
+
+// addEntry(["ran", "prayed", "ate", "pooped"],false)
+
+// console.log(journal)
+
+function phi(table){
+    return (table[3]*table[0] - table[1]*table[2])/(Math.sqrt(5*85*80*10))
+}
+
+console.log(phi([76,9,4,1]))
