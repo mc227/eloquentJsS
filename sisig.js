@@ -122,6 +122,18 @@ function phi(table) {
  * transformations.
  */
 
+// function tableFor(event,journal) {
+//     let table = [0,0,0,0]
+//     for(let i = 0; i < journal.length; i++) {
+//         let index = 0
+//         let entry = journal[i]
+//         if (entry.events.includes(event)) index+=1
+//         if (entry.squirrel) index+=2
+//         table[index] += 1
+//     }
+//     return table
+// }
+
 function tableFor(event,journal) {
     let table = [0,0,0,0]
     for(let i = 0; i < journal.length; i++) {
@@ -134,4 +146,27 @@ function tableFor(event,journal) {
     return table
 }
 
-console.log(tableFor("pizza", JOURNAL))
+// console.log(tableFor("pizza", JOURNAL))
+
+// for (let i = 0; i < JOURNAL.length; i++) {
+//     console.log(JOURNAL[i].events)
+// }
+
+// for (let entry of JOURNAL) {
+//     console.log(`${entry.events.length} events`)
+// }
+
+/**
+ * how do we that
+ * find every unique event in the JOURNAL data structure
+ */
+
+let uniqueEvent = []
+
+for(let entry of JOURNAL) {
+    for (let event of entry.events) {
+        if (!uniqueEvent.includes(event)) uniqueEvent.push(event)
+    }
+}
+
+console.log(uniqueEvent.length)
