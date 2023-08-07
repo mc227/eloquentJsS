@@ -92,11 +92,11 @@ var JOURNAL = [
   ];
   
 
-let journal = []
+// let journal = []
 
-function addEntry(events,squirrel) {
-    journal.push({events,squirrel})
-}
+// function addEntry(events,squirrel) {
+//     journal.push({events,squirrel})
+// }
 
 // addEntry(["pooped", "1","2"],true)
 // console.log(journal)
@@ -161,12 +161,77 @@ function tableFor(event,journal) {
  * find every unique event in the JOURNAL data structure
  */
 
-let uniqueEvent = []
+function journalEvents(journal) {
+    let events = []
 
-for(let entry of JOURNAL) {
-    for (let event of entry.events) {
-        if (!uniqueEvent.includes(event)) uniqueEvent.push(event)
+    for(let entry of journal) {
+        for (let event of entry.events) {
+            if (!events.includes(event)) events.push(event)
+        }
+    }
+    return events
+}
+
+// console.log(journalEvents(JOURNAL))
+
+/**
+ * i can list all of the events..
+ * how can i see all of the correlations
+ */
+
+// console.log(phi(tableFor("pizza", JOURNAL)))
+
+// for (let event of journalEvents(JOURNAL)){
+//     console.log(event+": "+ phi(tableFor(event, JOURNAL)))
+// }
+
+/**
+ *  Let’s filter the results to show only correlations greater than 0.1 or less than –0.1.
+ */
+
+// for (let event of journalEvents(JOURNAL)){
+//     let correlation = phi(tableFor(event, JOURNAL))
+//     if (correlation > 0.1 || correlation < -0.1) {
+//         console.log(event+": "+ correlation)
+//     }
+// }
+
+for (let entry of JOURNAL) {
+    if (entry.events.includes("peanuts")&&!entry.events.includes("brushed teeth")){
+        entry.events.push("peanut breath")
     }
 }
 
-console.log(uniqueEvent.length)
+// console.log(phi(tableFor("peanut breath", JOURNAL)))
+
+let todoList =["Mirars","Costpoint","poop"]
+
+function rememberTask(task) {
+    todoList.push(task)
+}
+
+function getTask() {
+    return todoList.shift()
+}
+
+function rememberUrgently(task) {
+    todoList.unshift(task)
+}
+
+// let list = [1,2,3,2,1]
+// console.log(list.indexOf(2))
+// console.log(list.lastIndexOf(2))
+// console.log(list.slice(2))
+
+function remove(array, index) {
+    return array.slice(0,index).concat(array.slice(index+1))
+}
+
+// let list = ["a","b","c","d","e"]
+// console.log(remove(list,2))
+
+// console.log("coconuts".slice(4,7))
+// console.log("coconut".indexOf("u"))
+// console.log("one two three".indexOf("ee"))
+// console.log("   okay\n".trim())
+console.log(String(6).padStart(11,"Oh Hi Mark"))
