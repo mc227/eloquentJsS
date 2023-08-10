@@ -518,25 +518,75 @@ function sum(numbers) {
 // }
 // console.log(list)
 
-function arrayToList(array) {
-    list = null
-    for(i = array.length - 1; i >=0;i--) {
-        list = {value:array[i], rest:list}
-    }
-    return list
-}
+// function arrayToList(array) {
+//     list = null
+//     for(i = array.length - 1; i >=0;i--) {
+//         list = {value:array[i], rest:list}
+//     }
+//     return list
+// }
 
-function listToArray(list) {
-    let output = []
-    while(list.rest != null) {
-        output.push(list.value)
-        list = list.rest
-    }
-    if (list.rest == null){
-        output.push(list.value)
-    }
-    return output
-}
+// function listToArray(list) {
+//     let output = []
+//     while(list.rest != null) {
+//         output.push(list.value)
+//         list = list.rest
+//     }
+//     if (list.rest == null){
+//         output.push(list.value)
+//     }
+//     return output
+// }
 
-console.log(arrayToList([1,2,3]))
-console.log(listToArray(arrayToList([1,2,3])))
+// console.log(arrayToList([1,2,3]))
+// console.log(listToArray(arrayToList([1,2,3])))
+
+// Your code here.
+// function arrayToList(array) {
+//     list = null
+//     for(i = array.length - 1; i >=0;i--) {
+//         list = {value:array[i], rest:list}
+//     }
+//     return list
+// }
+
+// function listToArray(list) {
+//     let output = []
+//     while(list.rest != null) {
+//         output.push(list.value)
+//         list = list.rest
+//     }
+//     if (list.rest == null){
+//         output.push(list.value)
+//     }
+//     return output
+// }
+
+// function prepend(item, list) {
+//     return {value:item,rest:list}
+// }
+
+// function nth(list,number) {
+//     return listToArray(list)[number]
+// }
+
+// console.log(arrayToList([10, 20]));
+// // → {value: 10, rest: {value: 20, rest: null}}
+// console.log(listToArray(arrayToList([10, 20, 30])));
+// // → [10, 20, 30]
+// console.log(prepend(10, prepend(20, null)));
+// // → {value: 10, rest: {value: 20, rest: null}}
+// console.log(nth(arrayToList([10, 20, 30]), 1));
+// // → 20
+
+// Your code here.
+
+
+
+let obj = {here: {is: "an"}, object: 2};
+console.log(deepEqual(obj, obj));
+// → true
+console.log(deepEqual(obj, {here: 1, object: 2}));
+// → false
+console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+// → true
