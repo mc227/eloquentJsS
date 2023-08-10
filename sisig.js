@@ -476,32 +476,67 @@ function sum(numbers) {
 
 // Your code here.
 
-function reverseArray(array) {
-    let result = []
-    for(let i = array.length-1; i >=0 ; i--) {
-        result.push(array[i])
+// function reverseArray(array) {
+//     let result = []
+//     for(let i = array.length-1; i >=0 ; i--) {
+//         result.push(array[i])
+//     }
+//     return result
+// }
+
+// function reverseArrayInPlace(array) {
+//     let  i = 0
+//     let j = array.length-1
+//     while(i < j/2) {
+//         // console.log(`Swapping elements at indices ${i} and ${j}`);
+//         let temp = array[i]
+//         array[i] = array[j] 
+//         array[j] = temp
+//         // console.log(`Array after swapping: ${array}`);
+//         i++
+//         j--
+//     }
+//     return array
+// }
+
+// console.log(reverseArray(["A", "B", "C"]));
+// // → ["C", "B", "A"];
+// let arrayValue = [1, 2, 3, 4, 5];
+// reverseArrayInPlace(arrayValue);
+// console.log(arrayValue);
+// // → [5, 4, 3, 2, 1]
+
+// let list = {
+//     value:1, 
+//     rest: {
+//         value:2,
+//         rest:{
+//             value:3, 
+//             rest:null
+//         }
+//     }
+// }
+// console.log(list)
+
+function arrayToList(array) {
+    list = null
+    for(i = array.length - 1; i >=0;i--) {
+        list = {value:array[i], rest:list}
     }
-    return result
+    return list
 }
 
-function reverseArrayInPlace(array) {
-    let  i = 0
-    let j = array.length-1
-    while(i < j/2) {
-        // console.log(`Swapping elements at indices ${i} and ${j}`);
-        let temp = array[i]
-        array[i] = array[j] 
-        array[j] = temp
-        // console.log(`Array after swapping: ${array}`);
-        i++
-        j--
+function listToArray(list) {
+    let output = []
+    while(list.rest != null) {
+        output.push(list.value)
+        list = list.rest
     }
-    return array
+    if (list.rest == null){
+        output.push(list.value)
+    }
+    return output
 }
 
-console.log(reverseArray(["A", "B", "C"]));
-// → ["C", "B", "A"];
-let arrayValue = [1, 2, 3, 4, 5];
-reverseArrayInPlace(arrayValue);
-console.log(arrayValue);
-// → [5, 4, 3, 2, 1]
+console.log(arrayToList([1,2,3]))
+console.log(listToArray(arrayToList([1,2,3])))
