@@ -348,9 +348,40 @@ function sum(numbers) {
     }
     return result
 }
-console.log(range(1, 10));
-// → [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-console.log(range(5, 2, -1));
-// → [5, 4, 3, 2]
-console.log(sum(range(1, 10)));
-// → 55
+// console.log(range(1, 10));
+// // → [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// console.log(range(5, 2, -1));
+// // → [5, 4, 3, 2]
+// console.log(sum(range(1, 10)));
+// // → 55
+
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isHappy = function(n) {
+    if (n==1) return true
+    else if (n > 1 && n < 10) return false
+    else {
+        return isHappy(getSumOfSquares(n))
+    }
+};
+
+function getSumOfSquares(number){
+    let len = String(number).length
+    let foo = []
+    for(let i = 0; i < len; i++) {
+        foo.push(String(number)[i])
+    }
+    // Convert each string element to a number, square it, and sum the squares
+    const sumOfSquaredElements = foo.reduce((sum, strNum) => {
+        const num = parseFloat(strNum); // Convert the string to a number
+        const squaredNum = num * num;   // Square the number
+        return sum + squaredNum;        // Add to the running sum
+    }, 0);
+    return sumOfSquaredElements      
+}
+
+
+
+console.log(isHappy(2))
