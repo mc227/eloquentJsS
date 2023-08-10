@@ -359,29 +359,149 @@ function sum(numbers) {
  * @param {number} n
  * @return {boolean}
  */
-var isHappy = function(n) {
-    if (n==1) return true
-    else if (n > 1 && n < 10) return false
-    else {
-        return isHappy(getSumOfSquares(n))
-    }
-};
+// var isHappy = function(n) {
+//     if (n==1) return true
+//     else if (n > 1 && n < 10) return false
+//     else {
+//         return isHappy(getSumOfSquares(n))
+//     }
+// };
 
-function getSumOfSquares(number){
-    let len = String(number).length
-    let foo = []
-    for(let i = 0; i < len; i++) {
-        foo.push(String(number)[i])
+// function getSumOfSquares(number){
+//     let len = String(number).length
+//     let foo = []
+//     for(let i = 0; i < len; i++) {
+//         foo.push(String(number)[i])
+//     }
+//     // Convert each string element to a number, square it, and sum the squares
+//     const sumOfSquaredElements = foo.reduce((sum, strNum) => {
+//         const num = parseFloat(strNum); // Convert the string to a number
+//         const squaredNum = num * num;   // Square the number
+//         return sum + squaredNum;        // Add to the running sum
+//     }, 0);
+//     return sumOfSquaredElements      
+// }
+
+// /**
+//  * Definition for singly-linked list.
+//  * function ListNode(val) {
+//  *     this.val = val;
+//  *     this.next = null;
+//  * }
+//  */
+
+// /**
+//  * @param {ListNode} head
+//  * @return {boolean}
+//  */
+// var hasCycle = function(head) {
+    
+// };
+// function ListNode(val) {
+//     this.val = val;
+//     this.next = null;
+// }
+// function hasCycle(head) {
+//     if (!head || !head.next) {
+//         return false; // No cycle if there are less than 2 nodes
+//     }
+
+//     let slow = head;
+//     let fast = head;
+
+//     let steps = 0; // Added for visualization
+
+//     while (fast !== null && fast.next !== null) {
+//         slow = slow.next;
+//         fast = fast.next.next;
+
+//         steps++; // Count the steps for visualization
+
+//         if (slow === fast) {
+//             console.log(`Cycle detected after ${steps} steps`); // Show steps when cycle is detected
+//             return true; // Found a cycle
+//         }
+//     }
+
+//     console.log(`No cycle detected after ${steps} steps`); // Show steps when no cycle is detected
+//     return false; // No cycle found
+// }
+
+// // Create a linked list from the array values [3, 2, 0, -4]
+// const nodes = [
+//     new ListNode(3),
+//     new ListNode(2),
+//     new ListNode(0),
+//     new ListNode(-4)
+// ];
+
+// for (let i = 0; i < nodes.length - 1; i++) {
+//     nodes[i].next = nodes[i + 1];
+// }
+// // To check if there is a cycle, call the hasCycle function with the head node
+// const head = nodes[0];
+// const result = hasCycle(head);
+// console.log(result);
+
+// function reverseArray(array) {
+//     let result = []
+//     for(let i = array.length-1; i >=0 ; i--) {
+//         result.push(array[i])
+//     }
+//     return result
+// }
+
+// function reverseArrayInPlace(array) {
+//     let  i = 0
+//     let j = array.length-1
+//     while(i < j/2) {
+//         // console.log(`Swapping elements at indices ${i} and ${j}`);
+//         let temp = array[i]
+//         array[i] = array[j] 
+//         array[j] = temp
+//         // console.log(`Array after swapping: ${array}`);
+//         i++
+//         j--
+//     }
+//     return array
+// }
+
+// console.log(reverseArray(["A", "B", "C"]));
+// // → ["C", "B", "A"];
+// let arrayValue = [1, 2, 3, 4, 5];
+// reverseArrayInPlace(arrayValue);
+// console.log(arrayValue);
+// // → [5, 4, 3, 2, 1]
+
+
+// Your code here.
+
+function reverseArray(array) {
+    let result = []
+    for(let i = array.length-1; i >=0 ; i--) {
+        result.push(array[i])
     }
-    // Convert each string element to a number, square it, and sum the squares
-    const sumOfSquaredElements = foo.reduce((sum, strNum) => {
-        const num = parseFloat(strNum); // Convert the string to a number
-        const squaredNum = num * num;   // Square the number
-        return sum + squaredNum;        // Add to the running sum
-    }, 0);
-    return sumOfSquaredElements      
+    return result
 }
 
+function reverseArrayInPlace(array) {
+    let  i = 0
+    let j = array.length-1
+    while(i < j/2) {
+        // console.log(`Swapping elements at indices ${i} and ${j}`);
+        let temp = array[i]
+        array[i] = array[j] 
+        array[j] = temp
+        // console.log(`Array after swapping: ${array}`);
+        i++
+        j--
+    }
+    return array
+}
 
-
-console.log(isHappy(2))
+console.log(reverseArray(["A", "B", "C"]));
+// → ["C", "B", "A"];
+let arrayValue = [1, 2, 3, 4, 5];
+reverseArrayInPlace(arrayValue);
+console.log(arrayValue);
+// → [5, 4, 3, 2, 1]
