@@ -581,26 +581,71 @@ function sum(numbers) {
 
 // Your code here.
 
-function deepEqual(a, b) {
-    if (a === b) return true
-    
-    if (a == null || typeof a != "object" || b == null || typeof b != "object") return false
+/** */
 
-    let keysA = Object.keys(a)
-    let keysB = Object.keys(b)
+// function deepEqual(a, b) {
+//     if(a === b) return true
 
-    if (keysA.length!=keysB.length) return false
-    for(let key of keysA) {
-        if(!keysB.includes(key)|| !deepEqual(a[key],b[key])) return false
-    }
-    return true
-}
+//     if(a == null || b == null || typeof a != "object" || typeof b != "object") return false
+
+//     let keysA = Object.keys(a), keysB = Object.keys(b)
+
+//     if (keysA.length != keysB.length) false
+
+//     for(let key of keysA) {
+//         if(!keysB.includes(key)||!deepEqual(a[key],b[key])) return false
+//     }
+//     return true
+// }
   
 
-let obj = {here: {is: "an"}, object: 2};
-console.log(deepEqual(obj, obj));
+// let obj = {here: {is: "an"}, object: 2};
+// console.log(deepEqual(obj, obj));
+// // → true
+// console.log(deepEqual(obj, {here: 1, object: 2}));
+// // → false
+// console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
 // → true
-console.log(deepEqual(obj, {here: 1, object: 2}));
-// → false
-console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
-// → true
+
+// console.log(range(1, 10));
+// // → [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// // console.log(range(1,10))
+
+/** */
+
+// function sum(numbers) {
+//     let result = 0
+//     for(let number of numbers) {
+//         result += number
+//     }
+//     return result
+// }
+
+// console.log(sum(range(1,10)))
+
+// let count = 1, total = 0
+// while(count <= 10) {
+//     total += count
+//     count++
+// }
+
+// console.log(total)
+
+// for (let i = 0; i < 10; i++) {
+//     console.log(i)
+// }
+
+
+// function repeatLog(n) {
+//     for (let i = 0; i < n; i++) {
+//         console.log(i)
+//     }        
+// }
+// repeatLog(10)
+
+function repeat(n,action) {
+    for (let i = 0; i < n; i++) {
+        action(i)
+    }        
+}
+repeat(10,console.log)
