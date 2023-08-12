@@ -356,9 +356,9 @@
 // // → 55
 
 /**
- * @param {number} n
- * @return {boolean}
- */
+//  * @param {number} n
+//  * @return {boolean}
+//  */
 // var isHappy = function(n) {
 //     if (n==1) return true
 //     else if (n > 1 && n < 10) return false
@@ -677,18 +677,10 @@
 
 // noisy(Math.min)(1,2,3)
 
-function repeat(n, action) {
+function repeat(n,action) {
     for(let i = 0; i < n; i++) {
         action(i)
     }
 }
 
-function unless(test,then) {
-    if(!test) then()
-}
-
-repeat(3, n => {
-    unless( n % 2 == 1, () => {
-        console.log(n, " is even")
-    })
-})
+repeat(3, console.log)
