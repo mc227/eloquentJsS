@@ -684,11 +684,15 @@ function repeat(n,action) {
 }
 
 function unless(test,then) {
-    if (!test) then()
+    if(!test) then()
 }
 
-repeat(3, n=> {
-    unless(n%2==1, () => {
+function checkAndLogEven(n) {
+    unless(n%2==1,function(){
         console.log(n, " is even")
     })
+}
+
+repeat(3, function(i) {
+    checkAndLogEven(i)
 })
