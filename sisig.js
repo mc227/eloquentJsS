@@ -321,33 +321,33 @@
 // // console.log(sum(range(1,10)))
 // Your code here.
 
-function range(start,end,step=1){
-    if (start < end) {
-        let result = []
-        let i = start
-        while(i <= end) {
-            result.push(i)
-            i = i+ step
-        }
-        return result
-    } else {
-        let result = []
-        let i = start
-        while(i >= end) {
+// function range(start,end,step=1){
+//     if (start < end) {
+//         let result = []
+//         let i = start
+//         while(i <= end) {
+//             result.push(i)
+//             i = i+ step
+//         }
+//         return result
+//     } else {
+//         let result = []
+//         let i = start
+//         while(i >= end) {
 
-            result.push(i)
-            i = i + step
-        }
-        return result
-    }
-}
-function sum(numbers) {
-    let result = 0
-    for(let number of numbers) {
-        result += number
-    }
-    return result
-}
+//             result.push(i)
+//             i = i + step
+//         }
+//         return result
+//     }
+// }
+// function sum(numbers) {
+//     let result = 0
+//     for(let number of numbers) {
+//         result += number
+//     }
+//     return result
+// }
 // console.log(range(1, 10));
 // // → [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 // console.log(range(5, 2, -1));
@@ -643,9 +643,52 @@ function sum(numbers) {
 // }
 // repeatLog(10)
 
-function repeat(n,action) {
-    for (let i = 0; i < n; i++) {
+// function repeat(n,action) {
+//     for (let i = 0; i < n; i++) {
+//         action(i)
+//     }        
+// }
+// // repeat(10,console.log)
+
+// let labels = []
+
+// repeat(5, i=>{
+//     labels.push(`Unit ${i+1}`)
+// })
+
+// console.log(labels)
+
+// function greaterThan(n) {
+//     return m => m > n
+// }
+
+// let greaterThan10 = greaterThan(10)
+
+// console.log(greaterThan10(11))
+
+// function noisy(f) {
+//     return (...args) => {
+//         console.log(`calling with ${args}`)
+//         let result = f(...args);
+//         console.log(`called ${args} returned ${result}`)
+//         return result
+//     }
+// }
+
+// noisy(Math.min)(1,2,3)
+
+function repeat(n, action) {
+    for(let i = 0; i < n; i++) {
         action(i)
-    }        
+    }
 }
-repeat(10,console.log)
+
+function unless(test,then) {
+    if(!test) then()
+}
+
+repeat(3, n => {
+    unless( n % 2 == 1, () => {
+        console.log(n, " is even")
+    })
+})
