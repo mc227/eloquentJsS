@@ -677,6 +677,44 @@
 
 // noisy(Math.min)(1,2,3)
 
+// function repeat(n,action) {
+//     for(let i = 0; i < n; i++) {
+//         action(i)
+//     }
+// }
+
+// function unless(test,then) {
+//     if(!test) then()
+// }
+
+// function checkAndLogEven(n) {
+//     unless(n%2==1,function(){
+//         console.log(n, " is even")
+//     })
+// }
+
+// repeat(3, function(i) {
+//     checkAndLogEven(i)
+// })
+
+// ['A','B'].forEach(l => console.log(l))
+
+// function add(a,b) {
+//     return a+b
+// }
+
+// function noisy(f) {
+//     return (...args) => {
+//         console.log("calling with ", args)
+//         let result = f(...args)
+//         console.log("called with ", args, " returned", result)
+//         return result
+//     }
+// }
+
+// let noisyAdd = noisy(add)
+// console.log(noisyAdd(3,5))
+
 function repeat(n,action) {
     for(let i = 0; i < n; i++) {
         action(i)
@@ -687,12 +725,8 @@ function unless(test,then) {
     if(!test) then()
 }
 
-function checkAndLogEven(n) {
-    unless(n%2==1,function(){
+repeat(3, n => {
+    unless(n%2==1,()=>{
         console.log(n, " is even")
     })
-}
-
-repeat(3, function(i) {
-    checkAndLogEven(i)
 })
