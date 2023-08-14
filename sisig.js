@@ -1882,13 +1882,47 @@ var SCRIPTS = [
 // let rtlScripts = filter(SCRIPTS, script =>script.direction == "rtl")
 // console.log(map(rtlScripts, s=>s.name))
 
-function reduce(array, combine, start) {
-    let current = start
-    for(let element of array) {
-        current = combine(current,element)
-    }
-    return current
+// function reduce(array, combine, start) {
+//   let result = start
+//   for(let element of array) {
+//     result = combine(result,element)
+//   }
+//   return result
+// }
+
+// console.log(reduce([1,2,3,4],(a,b)=>a+b,0))
+// console.log([1,2,3,4].reduce((a,b)=>a+b))
+
+function characterCount(script) {
+  return script.ranges.reduce((count,[from,to])=>{
+    return count + (to-from)
+  },0)
 }
 
-console.log(reduce([1,2,3,4],(a,b)=>a+b,0))
-// → 10
+// console.log(SCRIPTS.reduce((a,b)=>{
+//   return characterCount(a) < characterCount(b) ? b:a
+// }))
+
+// let biggest = null
+// for (let script of SCRIPTS){
+//   if(biggest == null || characterCount(biggest) < characterCount(script)){
+//     biggest = script
+//   }
+// }
+// console.log(biggest)
+
+function average(array) {
+  return array.reduce((a,b)=>a+b)/array.length
+}
+
+// console.log(Math.round(average(SCRIPTS.filter(s=>s.living).map(s=>s.year))))
+// console.log(Math.round(average(SCRIPTS.filter(s=>!s.living).map(s=>s.year))))
+let count = 0, total = 0
+for (let script of SCRIPTS) {
+  if (script.living) {
+    total += script.year
+    count += 1
+  }
+ }
+ console.log(Math.round((total/count)))
+// → 1188
