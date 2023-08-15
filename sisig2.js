@@ -1112,4 +1112,11 @@ var SCRIPTS = [
     link: "https://en.wikipedia.org/wiki/Mongolian_writing_systems#Horizontal_square_script"
   }
 ];
-console.log(SCRIPTS)
+// console.log(SCRIPTS)
+
+let count = 1, total = 0
+while(count <=10) {
+  total +=count
+  count++
+}
+console.log(total)
