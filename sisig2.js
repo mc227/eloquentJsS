@@ -1114,9 +1114,27 @@ var SCRIPTS = [
 ];
 // console.log(SCRIPTS)
 
-let count = 1, total = 0
-while(count <=10) {
-  total +=count
-  count++
+// let count = 1, total = 0
+// while(count <=10) {
+//   total +=count
+//   count++
+// }
+// console.log(total)
+
+function sum(array) {
+  let total = 0
+  for(let element of array) {
+    total+=element
+  }
+  return total
 }
-console.log(total)
+
+function range(start,end) {
+  let result = []
+  while(start <= end){
+    result.push(start)
+    start++
+  }
+  return result
+}
+console.log(sum(range(1,10)))

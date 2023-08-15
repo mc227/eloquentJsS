@@ -1,35 +1,33 @@
-function longest_str_in_array(arra)
-  {
-    var max_str = arra[0].length;
-    var ans = arra[0];
-    for (var i = 1; i < arra.length; i++) {
-        var maxi = arra[i].length;
-        if (maxi > max_str) {
-            ans = arra[i];
-            max_str = maxi;
-        }
-    }
-    return ans;
-}
-
 var longestCommonPrefix = function(strs) {
-    // look for element that is the longest
-    // and go from there
-    // console.log(longest_str_in_array(strs))
-    let mapped = []
-    let prefix = ""
-    mapped = strs.map(s => s.substring(0,1))
-    console.log(mapped)
-    for(let i = 1; i < mapped.length; i++){
-        if (mapped[0] === mapped[i])  {
-            prefix = mapped[0]
+    function areAllStringsEqual(array) {
+        let first = array[0]
+        for(let i = 1; i<array.length; i++) {
+            if(first != array[i]){
+                return false
+            }
         }
+        return true
     }
-    console.log(prefix)
-
-    mapped = strs.map(s=>s.substring(0,2))
-    console.log(mapped)
+    if(strs.length==1) {
+        return strs[0]
+    }
+    if(areAllStringsEqual(strs)){
+        return strs[0]
+    }
+    let firstWord = strs[0]
+    let prefix = ""
+    for(let i = 1; i < firstWord.length; i++) {
+        let mapped = []
+        mapped = strs.map(s => s.substring(0,i))
+        if (areAllStringsEqual(mapped)) {
+            prefix = mapped[0]
+        } 
+    }
+    return prefix
 };
-let words = ["flower","flow","flight"]
-longestCommonPrefix(words)
+// let words = ["flower","flow","flight"]
+// let words = ["a"]
+// let words = ["flower","flower","flower","flower"]
+let words = ["a","ac"]
+console.log(longestCommonPrefix(words))
 // console.log(longestCommonPrefix(words))
