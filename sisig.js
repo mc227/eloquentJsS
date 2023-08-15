@@ -1893,11 +1893,11 @@ var SCRIPTS = [
 // console.log(reduce([1,2,3,4],(a,b)=>a+b,0))
 // console.log([1,2,3,4].reduce((a,b)=>a+b))
 
-function characterCount(script) {
-  return script.ranges.reduce((count,[from,to])=>{
-    return count + (to-from)
-  },0)
-}
+// function characterCount(script) {
+//   return script.ranges.reduce((count,[from,to])=>{
+//     return count + (to-from)
+//   },0)
+// }
 
 // console.log(SCRIPTS.reduce((a,b)=>{
 //   return characterCount(a) < characterCount(b) ? b:a
@@ -1911,18 +1911,31 @@ function characterCount(script) {
 // }
 // console.log(biggest)
 
-function average(array) {
-  return array.reduce((a,b)=>a+b)/array.length
-}
+// function average(array) {
+//   return array.reduce((a,b)=>a+b)/array.length
+// }
 
 // console.log(Math.round(average(SCRIPTS.filter(s=>s.living).map(s=>s.year))))
 // console.log(Math.round(average(SCRIPTS.filter(s=>!s.living).map(s=>s.year))))
-let count = 0, total = 0
-for (let script of SCRIPTS) {
-  if (script.living) {
-    total += script.year
-    count += 1
-  }
- }
- console.log(Math.round((total/count)))
+// let count = 0, total = 0
+// for (let script of SCRIPTS) {
+//   if (script.living) {
+//     total += script.year
+//     count += 1
+//   }
+//  }
+//  console.log(Math.round((total/count)))
 // → 1188
+
+function characterScript(code) {
+  for(let script of SCRIPTS) {
+    if(script.ranges.some(([from,to])=>{
+      return code >= from && code < to
+    })){
+      return script
+    }
+  }
+  return null
+}
+
+console.log(characterScript(121))
