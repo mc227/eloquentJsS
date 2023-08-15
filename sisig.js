@@ -1927,15 +1927,25 @@ var SCRIPTS = [
 //  console.log(Math.round((total/count)))
 // → 1188
 
-function characterScript(code) {
-  for(let script of SCRIPTS) {
-    if(script.ranges.some(([from,to])=>{
-      return code >= from && code < to
-    })){
-      return script
-    }
-  }
-  return null
-}
+// function characterScript(code) {
+//   for(let script of SCRIPTS) {
+//     if(script.ranges.some(([from,to])=>{
+//       return code >= from && code < to
+//     })){
+//       return script
+//     }
+//   }
+//   return null
+// }
 
-console.log(characterScript(121))
+// console.log(characterScript(121))
+// Two emoji characters, horse and shoe
+// let horseShoe = "🐎👟";
+// console.log(horseShoe.length);
+// // → 4
+// console.log(horseShoe[0]);
+// // → (Invalid half-character)
+// console.log(horseShoe.charCodeAt(0));
+// // → 55357 (Code of the half-character)
+// console.log(horseShoe.codePointAt(0));
+// // → 128052 (Actual code for horse emoji)
