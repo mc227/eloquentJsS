@@ -1123,10 +1123,20 @@ var SCRIPTS = [
 
 // write a function writing console.log n times
 
-function repeatLog(n) {
-  for (let i = 0; i < n; i++) {
-    console.log(i)
+// function repeatLog(n) {
+//   for (let i = 0; i < n; i++) {
+//     console.log(i)
+//   }
+// }
+
+// repeatLog(10)
+
+// pass a function as a parameter
+
+function repeat(n,action) {
+  for(let i = 0; i < n; i++) {
+    action(i)
   }
 }
 
-repeatLog(10)
+repeat(10,console.log)
