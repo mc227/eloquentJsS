@@ -1112,29 +1112,21 @@ var SCRIPTS = [
     link: "https://en.wikipedia.org/wiki/Mongolian_writing_systems#Horizontal_square_script"
   }
 ];
-// console.log(SCRIPTS)
 
-// let count = 1, total = 0
-// while(count <=10) {
-//   total +=count
-//   count++
+/**
+ * for loop to do something n times
+ */
+
+// for(let i = 0; i < 10; i++) {
+//   console.log(i)
 // }
-// console.log(total)
 
-function sum(array) {
-  let total = 0
-  for(let element of array) {
-    total+=element
+// write a function writing console.log n times
+
+function repeatLog(n) {
+  for (let i = 0; i < n; i++) {
+    console.log(i)
   }
-  return total
 }
 
-function range(start,end) {
-  let result = []
-  while(start <= end){
-    result.push(start)
-    start++
-  }
-  return result
-}
-console.log(sum(range(1,10)))
+repeatLog(10)
