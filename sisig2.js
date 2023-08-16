@@ -1148,9 +1148,90 @@ function repeat(n,action) {
  * function value on the spot instead.
  */
 
-let result = []
-repeat(5, i=>{
-  result.push(`Unit ${i}`)
-})
+// let result = []
+// repeat(5, i=>{
+//   result.push(`Unit ${i}`)
+// })
 
-console.log(result)
+// console.log(result)
+
+// let labels = []
+// repeat(5, i=> labels.push(`Unit ${i}`))
+// console.log(labels)
+
+// function greaterThan(n) {
+//   return m => m > n
+// }
+// let greaterThan10 = greaterThan(10)
+// console.log(greaterThan10(11))
+
+/**
+ * functions that change other functions
+ */
+
+function noisy(f) {
+  return (...args) => {
+    console.log("calling ",args)
+    let result = f(...args)
+    console.log("called ",f, " with ", args)
+    return result
+  }
+}
+
+// noisy(Math.min)(1,2,3)
+
+function unless(test,then) {
+  if(!test) then()
+}
+
+// repeat(3, n=>{
+//   unless(n%2==1,()=>{
+//     console.log(n," is even")
+//   })
+// })
+
+// ["A","B"].forEach(l => console.log(l))
+
+function filter(script, test) {
+  let passed = []
+  for(let element of script) {
+    if (test(element)){
+      passed.push(element)
+    }
+  }
+  return passed
+}
+
+// console.log(filter(SCRIPTS, s => s.living))
+// console.log(SCRIPTS.filter(s=>s.direction ==="ltr"))
+// filter the rtl scripts
+// make it so that we just get their names
+function map(array,transform) {
+  let mapped = []
+  for(let element of array) {
+    mapped.push(transform(element))
+  }
+  return mapped
+}
+
+// let rtlScripts = SCRIPTS.filter(s=>s.direction==="rtl")
+// console.log(rtlScripts.map(s=>s.name))
+
+// console.log([1,2,3].reduce((a,b)=>a+b))
+function reduce(array, combine, start) {
+  let current = start
+  for(let element of array) {
+    current = combine(element,current)
+  }
+  return current
+}
+
+// console.log(reduce([1,2,3,4],(a,b)=>(a+b),0))
+
+// → {name: "Han", ...}
+
+// console.log([1,2,3].reduce((a,b)=>a<b?a:b))
+
+function characterCount(script) {
+  
+}
