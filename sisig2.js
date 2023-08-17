@@ -1249,11 +1249,11 @@ written the previous example
 without higher-order functions. 
 The code is not that much worse. */
 
-let biggest = null
-for(let script of SCRIPTS) {
-  if(biggest == null ||characterCount(biggest)< characterCount(script)) {
-    biggest = script
-  }
-}
+// let biggest = null
+// for(let script of SCRIPTS) {
+//   if(biggest == null ||characterCount(biggest)< characterCount(script)) {
+//     biggest = script
+//   }
+// }
 
-console.log(biggest)
+// console.log(biggest)
