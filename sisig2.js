@@ -1233,5 +1233,27 @@ function reduce(array, combine, start) {
 // console.log([1,2,3].reduce((a,b)=>a<b?a:b))
 
 function characterCount(script) {
-  
+  return script.ranges.reduce((count,[from,to])=>{
+    return count + (to - from)
+  },0)
 }
+
+// console.log(SCRIPTS.reduce((a,b)=> {
+//   return characterCount(a) < characterCount(b) ? b:a
+// }))
+
+/**Composability
+Consider how we would have 
+written the previous example 
+(finding the biggest script) 
+without higher-order functions. 
+The code is not that much worse. */
+
+let biggest = null
+for(let script of SCRIPTS) {
+  if(biggest == null ||characterCount(biggest)< characterCount(script)) {
+    biggest = script
+  }
+}
+
+console.log(biggest)
