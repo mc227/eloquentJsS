@@ -1,52 +1,20 @@
-// var longestCommonPrefix = function(strs) {
-//     function areAllStringsEqual(array) {
-//         let first = array[0]
-//         for(let i = 1; i<array.length; i++) {
-//             if(first !== array[i]){
-//                 return false
-//             }
-//         }
-//         return true
-//     }
-//     if(strs.length===1) {
-//         return strs[0]
-//     }
-//     if(areAllStringsEqual(strs)){
-//         return strs[0]
-//     }
-//     let firstWord = strs[0]
-//     let prefix = ""
-//     for(let i = 1; i <= firstWord.length; i++) {
-//         let mapped = strs.map(s => s.substring(0,i))
-//         if (areAllStringsEqual(mapped)) {
-//             prefix = mapped[0]
-//         } else {
-//             console.log("No common prefix at index", i - 1);
-//             break;
-//         }
-//     }
-//     return prefix
-// };
-// // let words = ["flower","flow","flight"]
-// // let words = ["a"]
-// // let words = ["flower","flower","flower","flower"]
-// let words = ["a","ac"]
-// console.log(longestCommonPrefix(words))
-// // console.log(longestCommonPrefix(words))
+let emails = ["a@leetcode.com","b@leetcode.com","c@leetcode.com"]
+// let emails = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
 
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-var twoSum = function(nums, target) {
-    for(let i = 0; i < nums.length; i++) {
-        for(let j = i+1; j<nums.length; j++) {
-            if(nums[i]+nums[j]===target) {
-                return [i,j]
-            }
-        }
+var numUniqueEmails = function(emails) {
+    let domains = emails.map(s=>{return s.substring(s.indexOf('@'))})
+    console.log(domains)
+    let localNames = emails.map(s=>{return s.includes("+") ? s.substring(0, s.indexOf("+")):s.substring(0, s.indexOf("@"))})
+    console.log(localNames)
+    let localNames2 = localNames.map(s=>{return s.includes(".")?s.replaceAll(".",""):s})
+    let result = []
+    for(let i = 0; i < localNames2.length; i++){
+        result.push(localNames2[i]+domains[i])
     }
+    let result2 = result.filter((item,
+        index) => {return result.indexOf(item) === index});
+    return result2.length
 };
 
-console.log(twoSum([2,7,11,15],9))
+
+console.log(numUniqueEmails(emails))

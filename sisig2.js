@@ -1233,8 +1233,8 @@ function reduce(array, combine, start) {
 // console.log([1,2,3].reduce((a,b)=>a<b?a:b))
 
 function characterCount(script) {
-  return script.ranges.reduce((count,[from,to])=>{
-    return count + (to - from)
+  return script.ranges.reduce((counts,[from,to])=>{
+    return counts + (to - from)
   },0)
 }
 
@@ -1257,3 +1257,116 @@ The code is not that much worse. */
 // }
 
 // console.log(biggest)
+function filter(array, test) {
+  let result = []
+  for(let element of array) {
+    if(test(element)){
+      result.push(element)
+    }
+  }
+  return result
+}
+
+// console.log(filter(SCRIPTS,s=>s.direction==="ltr"))
+// console.log(filter(SCRIPTS,s=>s.living))
+// console.log(SCRIPTS.filter(s=>s.direction==="ttb"))
+// filter SCRIPT all rtl
+// make an array of just the names
+
+function map(array, transform) {
+  let mapped = []
+  for(let element of array) {
+    mapped.push(transform(element))
+  }
+  return mapped;
+}
+
+// let rtlScripts = SCRIPTS.filter(s=>s.direction==="rtl")
+// console.log(map(rtlScripts, s=>s.name))
+// console.log(rtlScripts.map(s=>s.name))
+
+function reduce(array,combine,start) {
+  let current = start
+  for(let element of array) {
+    current = combine(current,element)
+  }
+  return current
+}
+
+// console.log(reduce([1,2,3],(a,b)=>a+b,0))
+// console.log([1,2,3,4].reduce((a,b)=>a+b))
+
+/**
+ * Task: use reduce (twice) to find the script with the most character
+ */
+
+function characterCount(script) {
+  return script.ranges.reduce((counts,[from,to])=>{
+    return counts + (to - from)
+  },0)
+}
+
+// console.log(SCRIPTS.reduce((a,b)=>{
+//   return characterCount(a) < characterCount(b) ? b:a
+// }))
+
+// composability
+
+// let biggest =  null
+// for(let script of SCRIPTS) {
+//   if(biggest == null || characterCount(biggest) < characterCount(script)){
+//     biggest = script
+//   }
+// }
+// console.log(biggest)
+
+// create average function
+// find the average of the living scripts
+// find the average of the dead scripts
+
+function average(array) {
+  return array.reduce((a,b)=>a+b)/array.length
+}
+
+// console.log(Math.round(average(SCRIPTS.filter(s=>s.living).map(s=>s.year))))
+// console.log(Math.round(average(SCRIPTS.filter(s=>!s.living).map(s=>s.year))))
+
+// let counts = 0, total = 0
+// for(let script of SCRIPTS) {
+//   if(script.living) {
+//     total += script.year
+//     counts += 1
+//   }
+// }
+
+// console.log(total/counts)
+
+function characterScript(code) {
+  for(let script of SCRIPTS){
+    if(script.ranges.some(([from,to])=> {
+      return code >= from && code < to
+    })) {
+      return script
+    }
+  }
+  return null
+}
+
+// console.log(characterScript(121));
+
+// Two emoji characters, horse and shoe
+let horseShoe = "🐎👟";
+// console.log(horseShoe.length);
+// // → 4
+// console.log(horseShoe[0]);
+// // → (Invalid half-character)
+// console.log(horseShoe.charCodeAt(0));
+// // → 55357 (Code of the half-character)
+// console.log(horseShoe.codePointAt(3));
+// → 128052 (Actual code for horse emoji)
+
+// for (let char of horseShoe) {
+//   console.log(char)
+// }
+
+// need to do some deep focused work
