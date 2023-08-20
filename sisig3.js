@@ -26,4 +26,16 @@ function range(start, end) {
     return result
 }
 
-console.log(sum(range(1, 10)));
+// console.log(sum(range(1, 10)));
+
+// for(let i = 0; i < 10; i++) {
+//     console.log(i)
+// }
+
+function consoleN(n) {
+    for(let i = 0; i < n; i++) {
+        console.log(i)
+    }
+}
+
+consoleN(5)
