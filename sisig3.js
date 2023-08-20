@@ -32,10 +32,38 @@ function range(start, end) {
 //     console.log(i)
 // }
 
-function consoleN(n) {
+// function consoleN(n) {
+//     for(let i = 0; i < n; i++) {
+//         console.log(i)
+//     }
+// }
+
+// consoleN(5)
+
+function repeatLog(n) {
     for(let i = 0; i < n; i++) {
         console.log(i)
     }
 }
 
-consoleN(5)
+// repeatLog(5)
+
+function repeat(n,action) {
+    for(let i = 0; i < n; i++) {
+        action(i)
+    }
+}
+
+// repeat(3,console.log)
+
+let labels = []
+
+repeat(5, i=>{
+    labels.push(`Unit ${i+1}`)
+})
+
+// console.log(labels)
+
+// higher ordered functions allow us to abstract over actions and not just vales
+// one way is for functions creating other functions
+
