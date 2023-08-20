@@ -67,4 +67,11 @@ repeat(5, i=>{
 // higher ordered functions allow us to abstract over actions and not just vales
 // one way is for functions creating other functions
 
+function greaterThan(n) {
+    return m => m > n
+}
+
+let greaterThan10 = greaterThan(10)
+// console.log(greaterThan10(11))
+
 
