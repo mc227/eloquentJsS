@@ -74,4 +74,25 @@ function greaterThan(n) {
 let greaterThan10 = greaterThan(10)
 // console.log(greaterThan10(11))
 
+function noisy(f) {
+    return (...args) => {
+        console.log("calling ",args)
+        let result = f(...args)
+        console.log("called ",args, " returned ", result)
+        return result
+    }
+}
 
+// console.log(noisy(Math.min)(1,2,3))
+
+function unless(test, then) {
+    if(!test) then()
+}
+
+// repeat(3, m => {
+//     unless(m%2 == 1,() => {
+//         console.log(m, " is even")
+//     })
+// })
+
+// console.log([1,2,3].forEach(i=>console.log(i+1)))
