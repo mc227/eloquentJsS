@@ -21,3 +21,16 @@
 
 
 // console.log(numUniqueEmails(emails))
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var romanToInt = function(s) {
+    let result = 0
+    console.log(s.includes("I"))
+    s.replace("I")
+    console.log(s)
+};
+
+console.log(romanToInt("III"))
