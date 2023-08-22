@@ -1234,3 +1234,13 @@ function map(array, transform){
 
 // console.log(SCRIPTS.filter(s=>s.direction==="rtl").map(s=>s.name))
 
+function reduce(array, combine, start) {
+    let current = start
+    for(let element of array) {
+        current = combine(current, element)
+    }
+    return current
+}
+
+// console.log([1,2,3,4].reduce((a,b)=>{return a+b}))
+// use reduce (twice) to find the script with the most characters
