@@ -1356,5 +1356,51 @@ function textScripts(text) {
   }).join(", ")
 }
 
-console.log(textScripts('英国的狗说"woof", 俄罗斯的狗说"тяв"'));
+// console.log(textScripts('英国的狗说"woof", 俄罗斯的狗说"тяв"'));
 // → 61% Han, 22% Latin, 17% Cyrillic
+
+// Flattening
+// Use the reduce method in combination 
+//with the concat method to “flatten” an 
+//array of arrays into a single array that has all the elements of the original arrays.
+let mark = [[1,2,3],[4,5,6],[7,8,9]]
+// console.log(mark.reduce((foo,current)=>foo.concat(current),[]))
+
+function loop(start, test, update, body){
+  for(let value = start; test(value); value = update(value)){
+    body(value)
+  }
+}
+
+// loop(3,n=>n>0,n=>n-1,console.log)
+
+function every(array, predicate) {
+  for(let element of array) {
+    if(!predicate(element)){
+      return false
+    }
+  }
+  return true
+}
+
+function every2(array,predicate){
+  return !array.some(element=>!predicate(element))
+}
+
+// console.log(every2([1,2,3],n=>n < 10))
+
+function dominantDirection(text){
+  let scripts = countBy(text,char=>{
+    let script = characterScript(char.codePointAt(0))
+    return script ? script.direction : "none"
+  }).filter(({name})=>name!="none")
+  
+  if (scripts.length == 0 ) return "ltr"
+
+  return scripts.reduce((a,b)=> a.count > b.count ? a:b ).name
+}
+
+
+console.log(dominantDirection("Hello!"));
+// → ltr
+console.log(dominantDirection("Hey, مساء الخير"));
