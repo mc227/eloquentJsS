@@ -39,3 +39,14 @@ function repeatLog(n) {
 }
 
 // repeatLog(10)
+
+/*
+But what if we want to do something 
+other than logging the numbers? 
+Since “doing something” 
+can be represented as a 
+function and functions 
+are just values, we can 
+pass our action as a function value.
+*/
+
