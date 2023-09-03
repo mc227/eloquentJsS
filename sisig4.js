@@ -78,3 +78,16 @@ function greaterThan(n) {
 
 let greaterThan10 = greaterThan(10)
 // console.log(greaterThan10(11))
+
+// And we can have functions that change other functions.
+
+function noisy(f) {
+    return (...args) => {
+        console.log(`calling ${f} with ${args}`)
+        let result = f(...args)
+        console.log(`called ${result}`)
+        return result
+    }
+}
+
+noisy(Math.min)(1,2,3)
