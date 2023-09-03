@@ -55,4 +55,12 @@ function repeat(n, action) {
         action(i)
     }
 }
-repeat(10, console.log)
+// repeat(10, console.log)
+
+/*
+We don’t have to pass a predefined function to repeat. 
+Often, it is easier to create a function value on the spot instead.
+*/
+let labels = []
+repeat(5,n=>labels.push(`Unit ${n+1}`))
+console.log(labels)
