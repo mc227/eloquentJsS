@@ -83,9 +83,9 @@ let greaterThan10 = greaterThan(10)
 
 function noisy(f) {
     return (...args) => {
-        console.log(`calling ${f} with ${args}`)
+        console.log("calling with ", args)
         let result = f(...args)
-        console.log(`called ${result}`)
+        console.log("called with ", args, " returned ", result)
         return result
     }
 }
