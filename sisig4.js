@@ -65,4 +65,16 @@ let labels = []
 repeat(5, i => {
     labels.push(`Unit ${i+1}`)
 })
-console.log(labels)
+// console.log(labels)
+
+/**
+ * Higher-order functions allow us to abstract over actions, not just values. 
+ * They come in several forms. 
+ * For example, we can have functions that create new functions.
+ */
+function greaterThan(n) {
+    return m => m > n
+}
+
+let greaterThan10 = greaterThan(10)
+console.log(greaterThan10(11))
