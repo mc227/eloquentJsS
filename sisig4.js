@@ -83,9 +83,16 @@ let greaterThan10 = greaterThan(10)
 
 function noisy(f) {
     return (...args) => {
-        console.log("calling ",args)
+        console.log("calling with",args)
         let result = f(...args)
-        console.log("called ", args, " returned ", f(...args) )
+        console.log("called with ", args, " returned ", f(...args) )
         return result
     }
 }
+
+
+noisy(Math.min)(1,2,3)
+
+/**
+ * We can even write functions that provide new types of control flow
+ */
