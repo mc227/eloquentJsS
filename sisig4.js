@@ -97,9 +97,11 @@ function noisy(f) {
  * We can even write functions that provide new types of control flow
  */
 function unless(test, then) {
-    
+    if(!test) then()
 }
 
 repeat(3, n => {
-    
+    unless(n % 2 == 1, ()=>{
+        console.log(n," is even")
+    })
 })
