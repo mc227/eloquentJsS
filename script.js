@@ -1123,4 +1123,3 @@ var SCRIPTS = [
     global.SCRIPTS = SCRIPTS;
 
     
-console.log(filter(SCRIPTS, script => script.living));
