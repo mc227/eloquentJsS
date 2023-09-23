@@ -74,4 +74,11 @@ function repeat(action, n){
     }
 }
 
-repeat(console.log, 10)
+// repeat(console.log, 10)
+
+labels = []
+
+repeat(i=> labels.push(`Unit ${i+1}`),5)
+
+console.log(labels);
+// → ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5"]
