@@ -69,3 +69,16 @@
  */
 
 // i just want to do the repeat function again
+function repeat(n, action) {
+    for(let i = 0; i < n; i++) {
+        action(i)
+    }
+}
+
+// repeat(3, console.log)
+
+let labels = []
+repeat(5, l => {
+    return labels.push(`Unit ${l+1}`)
+})
+console.log(labels)
