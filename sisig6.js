@@ -68,20 +68,4 @@
  * are just values, we can pass our action as a function value.
  */
 
-function repeat(action, n){
-    for(let i = 0; i < n; i++){
-        action(i)
-    }
-}
-
-// repeat(console.log, 10)
-
-labels = []
-
-repeat(i => 
-    {
-        return labels.push(`Unit ${i+1}`)
-    },5)
-
-console.log(labels);
-// → ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5"]
+// i just want to do the repeat function again
