@@ -77,8 +77,26 @@ function repeat(n, action) {
 
 // repeat(3, console.log)
 
-let labels = []
-repeat(5, l => {
-    return labels.push(`Unit ${l+1}`)
-})
-console.log(labels)
+// let labels = []
+// repeat(5, l => {
+//     return labels.push(`Unit ${l+1}`)
+// })
+// console.log(labels)
+
+function greaterThan(n) {
+    return m => m > n
+}
+
+let greaterThan10 = greaterThan(10)
+// console.log(greaterThan10(11))
+
+function noisy(f) {
+    return (...args) => {
+        console.log("calling ", args)
+        let result = f(...args)
+        console.log("called with ", args, ", returned ", result)
+        return result
+    }
+}
+
+console.log(noisy(Math.min)(1,2,3))
