@@ -99,4 +99,22 @@ function noisy(f) {
     }
 }
 
-console.log(noisy(Math.min)(1,2,3))
+// console.log(noisy(Math.min)(1,2,3))
+
+// Define a function called 'unless' that takes two arguments: 'test' and 'then'.
+function unless(test, then) {
+    // Check if the 'test' function returns false (negation of 'test' result).
+    if (!test) {
+        // If the 'test' is false, execute the 'then' function.
+        then();
+    }
+}
+
+// Call the 'repeat' function three times with the following callback function.
+repeat(3, n => {
+    // Use the 'unless' function to check if 'n' is even.
+    unless(n % 2 == 1, () => {
+        // If 'n' is not odd (i.e., it's even), log a message.
+        console.log(`${n} is even`);
+    });
+})
