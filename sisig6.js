@@ -111,10 +111,60 @@ function unless(test, then) {
 }
 
 // Call the 'repeat' function three times with the following callback function.
-repeat(3, n => {
-    // Use the 'unless' function to check if 'n' is even.
-    unless(n % 2 == 1, () => {
-        // If 'n' is not odd (i.e., it's even), log a message.
-        console.log(`${n} is even`);
-    });
-})
+// repeat(3, n => {
+//     // Use the 'unless' function to check if 'n' is even.
+//     unless(n % 2 == 1, () => {
+//         // If 'n' is not odd (i.e., it's even), log a message.
+//         console.log(`${n} is even`);
+//     });
+// })
+
+
+// ['A','B'].forEach(l => {
+//     return console.log(l)
+// })
+
+const SCRIPTS = require('./script.js');
+
+
+function filter(array, test) {
+    let passed = []
+    for(let item of array) {
+        if(test(item)){
+            passed.push(item)
+        }
+    }
+    return passed
+}
+
+// console.log(filter(SCRIPTS, l => l.living))
+
+// console.log(SCRIPTS.filter(script => script.direction == "ttb"))
+
+// create map function
+// filter out all rtl scripts
+// filter out just the names from the array of objects
+
+function map(array, transform) {
+    let mapped = []
+    for(let item of array) {
+        mapped.push(transform(item))
+    }
+    return mapped
+}
+
+let rtlScripts = SCRIPTS.filter(script => script.direction === "rtl")
+// console.log(map(rtlScripts, l => l.name))
+
+function reduce(array, combine, start) {
+    let current = start
+    for (let item of array){
+        current = combine(current,item)
+    }
+    return current
+}
+
+// console.log(reduce([1,2,3,4],(a,b) => a+b,0))
+// console.log([1,2,3,4].reduce((a,b)=>a+b))
+// To use reduce (twice) to find the script with the most characters, we can write something like this:
+
