@@ -168,3 +168,81 @@ function reduce(array, combine, start) {
 // console.log([1,2,3,4].reduce((a,b)=>a+b))
 // To use reduce (twice) to find the script with the most characters, we can write something like this:
 
+function characterCount(script) {
+    return script.ranges.reduce((count,[from,to])=> {
+        return count + (to -from)
+    },0)
+}
+
+let biggest = null
+
+for(let script of SCRIPTS){
+    if(biggest==null || characterCount(biggest)<characterCount(script)){
+        biggest=script
+    }
+}
+// console.log(biggest)
+// console.log(SCRIPTS[0])
+// console.log(characterCount(SCRIPTS[0]))
+
+// console.log(SCRIPTS.reduce((a,b)=>{
+//     return characterCount(a) < characterCount(b) ? b:a
+// }))
+
+// let count = 1, total = 0
+
+// while(count < 11) {
+//     total+=count
+//     count++
+// }
+// console.log(total)
+
+function average(array) {
+    return array.reduce((a,b)=>a+b)/array.length
+}
+
+// console.log(Math.floor(average(SCRIPTS.filter(s=>s.living).map(s=>s.year))))
+
+// console.log(Math.floor(average(SCRIPTS.filter(s=>!s.living).map(s=>s.year))))
+
+/**
+ * You could definitely also write this computation as one big loop.
+ */
+
+let count = 0, total = 0
+
+for (let script of SCRIPTS) {
+    if(script.living) {
+        total += script.year
+        count++
+    }
+}
+
+// console.log(Math.floor(total/count))
+
+function characterScript(code) {
+    for(let script of SCRIPTS) {
+        if(script.ranges.some(([from, to])=>{
+            return code >= from && code <= to
+        })){
+            return script
+        }
+    }
+    return null
+}
+
+// console.log(characterScript(121))
+
+// 🐎
+// 👞
+
+let horseShoe = "🐎👞"
+
+// console.log(characterScript(horseShoe))
+
+function countBy(items, groupName){
+    
+}
+
+console.log(countBy([1,2,3,4,5],n=>n>2))
+// → [{name: false, count: 2}, {name: true, count: 3}]
