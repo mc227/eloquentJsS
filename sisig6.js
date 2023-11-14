@@ -283,8 +283,19 @@ function textScripts(text) {
 
 let arrays = [[1, 2, 3], [4, 5], [6]];
 
-console.log(
-    arrays.reduce(
-        (flat,current)=>flat.concat(current),[]
-        )
-    )
+// console.log(
+//     arrays.reduce(
+//         (flat,current)=>flat.concat(current),[]
+//         )
+//     )
+
+
+// Your code here.
+
+
+
+
+loop(3, n => n > 0, n => n - 1, console.log);
+// → 3
+// → 2
+// → 1
