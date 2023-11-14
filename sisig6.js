@@ -275,21 +275,6 @@ function textScripts(text) {
 // → 61% Han, 22% Latin, 17% Cyrillic
 // console.log(textScripts(''));
 
-let Celine = [[1,2,3],[4,5,6],[7,8,9]]
+let arrays = [[1, 2, 3], [4, 5], [6]];
 
-/**
- * Use the reduce method in combination 
- * with the concat method to “flatten” 
- * an array of arrays into a single array 
- * that has all the elements of the original arrays.
- * @param {*} arrayOfArrays 
- */
-function flattening(arrayOfArrays){
-    let result = []
-    console.log(arrayOfArrays.reduce(([a],[b])=>{
-        return a.concat(b)
-    },[]))
-    return result
-}
-
-console.log(flattening(Celine))
+console.log(arrays.reduce((flat,current)=>flat.concat(current),[]))
