@@ -241,8 +241,55 @@ let horseShoe = "🐎👞"
 // console.log(characterScript(horseShoe))
 
 function countBy(items, groupName){
-    
+    let counts = []
+    for (let item of items){
+        let name = groupName(item)
+        let known = counts.findIndex(c=>c.name==name)
+        if(known==-1){
+            counts.push({name, count:1})
+        } else {
+            counts[known].count++
+        }
+    }
+    return counts
 }
 
-console.log(countBy([1,2,3,4,5],n=>n>2))
+// console.log(countBy([1,2,3,4,5],n=>n>2))
 // → [{name: false, count: 2}, {name: true, count: 3}]
+
+function textScripts(text) {
+    let scripts = countBy(text, char => {
+        let script = characterScript(char.codePointAt(0))
+        return script ? script.name : "none"
+    }).filter(({name})=>name!="none")
+    
+    let total = scripts.reduce((n,{count})=>n+count,0)
+    if (total == 0) return "TBD"
+
+    return scripts.map(({name,count})=>{
+        return `${Math.round(count/total * 100)}% ${name}`
+    }).join(", ")
+}
+
+// console.log(textScripts('英国的狗说"woof", 俄罗斯的狗说"тяв"'));
+// → 61% Han, 22% Latin, 17% Cyrillic
+// console.log(textScripts(''));
+
+let Celine = [[1,2,3],[4,5,6],[7,8,9]]
+
+/**
+ * Use the reduce method in combination 
+ * with the concat method to “flatten” 
+ * an array of arrays into a single array 
+ * that has all the elements of the original arrays.
+ * @param {*} arrayOfArrays 
+ */
+function flattening(arrayOfArrays){
+    let result = []
+    console.log(arrayOfArrays.reduce(([a],[b])=>{
+        return a.concat(b)
+    },[]))
+    return result
+}
+
+console.log(flattening(Celine))
