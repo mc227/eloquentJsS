@@ -325,7 +325,18 @@ function dominantDirection(text) {
         let script = characterScript(char.codePointAt(0));
         return script ? script.name : "none";
     }).filter(({name}) => name != "none");
-    console.log(scripts)
+    // loop through scripts and identify the name with the highest count
+    let highest = 0
+    let highest_name = null
+    for(let item of scripts){
+        if (item.count > highest) {
+            highest = item.count
+            highest_name = item.name
+        }
+    }
+    // console.log(highest_name)
+    // i need to access the writing direction inside SCRIPTS
+    
 }
   
 console.log(dominantDirection("Hello!"));
