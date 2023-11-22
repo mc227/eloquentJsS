@@ -321,26 +321,15 @@ let arrays = [[1, 2, 3], [4, 5], [6]];
 
 function dominantDirection(text) {
     // Your code here.
-    let scripts = countBy(text, char => {
+    let counted = countBy(text, char => {
         let script = characterScript(char.codePointAt(0));
-        return script ? script.name : "none";
-    }).filter(({name}) => name != "none");
-    // loop through scripts and identify the name with the highest count
-    let highest = 0
-    let highest_name = null
-    for(let item of scripts){
-        if (item.count > highest) {
-            highest = item.count
-            highest_name = item.name
-        }
-    }
-    // console.log(highest_name)
-    // i need to access the writing direction inside SCRIPTS
-    SCRIPTS.forEach(object => {
-        if(object.name === highest_name) {
-            console.log(object.direction)
-        }
-    })
+        return script ? script.direction : "none";
+    }).filter(({name}) => name != "none")
+
+    if (counted.length == 0) return "ltr"
+
+    return counted.reduce((a,b)=> a.count > b.count ? a:b).name;
+    // 1 time
 }
   
 console.log(dominantDirection("Hello!"));
