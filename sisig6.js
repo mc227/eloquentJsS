@@ -336,7 +336,11 @@ function dominantDirection(text) {
     }
     // console.log(highest_name)
     // i need to access the writing direction inside SCRIPTS
-    
+    SCRIPTS.forEach(object => {
+        if(object.name === highest_name) {
+            console.log(object.direction)
+        }
+    })
 }
   
 console.log(dominantDirection("Hello!"));
