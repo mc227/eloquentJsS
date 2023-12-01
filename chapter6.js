@@ -1,7 +1,18 @@
-let rabbit = {}
+// let rabbit = {}
 
-rabbit.speak = function(line) {
-    console.log(`The rabbit says ${line}`)
+// rabbit.speak = function(line) {
+//     console.log(`The rabbit says ${line}`)
+// }
+
+// rabbit.speak("oh hi Mark")
+
+function speak(line) {
+    console.log(`The ${this.type} rabbit says '${line}'`);
 }
 
-rabbit.speak("oh hi Mark")
+let whiteRabbit = {type: "white", speak}
+let hungryRabbit = {type: "hungry", speak};
+
+// whiteRabbit.speak("Oh my ears and whiskers, " + "how late it's getting!");
+
+hungryRabbit.speak("I could use a carrot right now.")
