@@ -13,4 +13,8 @@ let object = new class{
     }
 }
 
+let killerRabbit = new Rabbit("killer")
+Rabbit.prototype.teeth = "small"
+console.log(killerRabbit.teeth)
+
 // console.log(object.getWord())
