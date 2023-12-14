@@ -1,20 +1,9 @@
-class Rabbit{
-    constructor(type){
-        this.type = type
-    }
-    speak(line){
-        console.log(`The ${this.type} rabbit says '${line}'`)
-    }
+let age = {
+    Julia:62,
+    Boris:62,
+    Liang:62
 }
 
-let object = new class{
-    getWord(){
-        return "hello"
-    }
-}
-
-let killerRabbit = new Rabbit("killer")
-Rabbit.prototype.teeth = "small"
-console.log(killerRabbit.teeth)
-
-// console.log(object.getWord())
+console.log(`Julia is ${age.Julia}`)
+console.log("Is Jack's age known? ", "Jack" in age)
+console.log("Is toString's age known? ", "toString" in age)
