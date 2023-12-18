@@ -1,18 +1,15 @@
-class Rabbit{
-    constructor(type){
-        this.type = type
+class Rabbit {
+    constructor(type) {
+      this.type = type;
     }
-    
-    speak(line){
-        console.log(`The ${this.type} rabbit says '${line}'`)
+    speak(line) {
+      console.log(`The ${this.type} rabbit says '${line}'`);
     }
-}
+  }
 
-whiteRabbit = new Rabbit("White")
-console.log(whiteRabbit.toString())
+let blackRabbit = new Rabbit('black')
 
-Rabbit.prototype.toString = function() {
-    return `a ${this.type} Rabbit`
-}
-
-console.log(whiteRabbit.toString())
+let sym = Symbol("name")
+console.log(sym == Symbol("name"))
+Rabbit.prototype[sym] = 55
+console.log(blackRabbit[sym])
